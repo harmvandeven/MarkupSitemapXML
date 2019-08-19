@@ -1,6 +1,6 @@
 <?php
 
-class MarkupSitemapXML extends WireData implements Module {
+class EmberMarkupSitemapXML extends WireData implements Module {
 
 	/**
 	 * Provide information about this module to ProcessWire
@@ -8,13 +8,14 @@ class MarkupSitemapXML extends WireData implements Module {
 	 */
 	public static function getModuleInfo() {
 		return array(
-			'title' => 'Markup Sitemap XML',
+			'title' => 'Ember Markup Sitemap XML',
 			'summary' => 'Generates an XML sitemap at yoursite.com/sitemap.xml for use with Google Webmaster Tools etc.',
 			'href' => 'http://processwire.com/talk/index.php/topic,867.0.html',
-			'version' => 110,
+			'version' => '1.2.0',
 			'permanent' => false,
 			'autoload' => true,
 			'singular' => true,
+			'icon' => 'sitemap',
 			);
 	}
 
@@ -48,7 +49,7 @@ class MarkupSitemapXML extends WireData implements Module {
 					$startpage = "/".$multisite->subdomain.$startpage;
 				}
 			}
-			
+
 			// make sure that page used as root for sitemap actually exists
 			if ($this->pages->get($startpage) instanceof NullPage) return;
 
